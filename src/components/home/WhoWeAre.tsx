@@ -18,15 +18,12 @@ export default function WhoWeAre() {
             className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden order-2 md:order-1 bg-gray-200"
           >
             <Image
-              src="/images/about-intro.jpg"
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2940&auto=format&fit=crop"
               alt="TranquilGlow med spa"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               unoptimized
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
-              }}
             />
           </motion.div>
           <div className="order-1 md:order-2">

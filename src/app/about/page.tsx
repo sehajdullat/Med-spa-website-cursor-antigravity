@@ -1,4 +1,5 @@
 import Image from "next/image";
+import * as motion from "framer-motion/client";
 
 export const metadata = {
   title: "About Us | TranquilGlow Med Spa",
@@ -11,7 +12,7 @@ export default function AboutPage() {
     <div>
       <section className="relative h-[70vh] min-h-[500px]">
         <Image
-          src="/images/team-photo.jpg"
+          src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2940&auto=format&fit=crop"
           alt="TranquilGlow team"
           fill
           className="object-cover brightness-50"
@@ -19,7 +20,12 @@ export default function AboutPage() {
           unoptimized
         />
         <div className="absolute inset-0 flex items-center">
-          <div className="container mx-auto px-4 text-center text-white">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4 text-center text-white"
+          >
             <h1 className="font-heading text-4xl md:text-6xl mb-6">
               Medical Expertise You Can Trust,
               <br />
@@ -29,24 +35,34 @@ export default function AboutPage() {
               Meet the board-certified team transforming skin health across San
               Francisco
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden bg-gray-200">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden bg-gray-200"
+            >
               <Image
-                src="/images/founder-photo.jpg"
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2940&auto=format&fit=crop"
                 alt="Dr. Sarah Chen"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 unoptimized
               />
-            </div>
-            <div className="space-y-6">
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
               <h2 className="font-heading text-4xl md:text-5xl">Our Story</h2>
               <div className="prose prose-lg text-gray-700 max-w-none">
                 <p>
@@ -87,13 +103,18 @@ export default function AboutPage() {
                   <p className="text-sm text-gray-600">Medical Professionals</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       <section className="py-16 md:py-20 bg-[var(--color-secondary)]">
-        <div className="container mx-auto px-4 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="container mx-auto px-4 text-center"
+        >
           <h2 className="font-heading text-4xl mb-12">
             Certifications & Partnerships
           </h2>
@@ -102,7 +123,7 @@ export default function AboutPage() {
             medical-grade products. When you choose TranquilGlow, you&apos;re
             choosing proven safety and efficacy.
           </p>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

@@ -17,17 +17,13 @@ export default function Hero() {
     <section className="relative h-screen min-h-[600px]">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-treatment.jpg"
+          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2940&auto=format&fit=crop"
           alt="TranquilGlow med spa treatment"
           fill
           className="object-cover"
           priority
           sizes="100vw"
           unoptimized
-          onError={(e) => {
-            const t = e.target as HTMLImageElement;
-            t.style.display = "none";
-          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
       </div>

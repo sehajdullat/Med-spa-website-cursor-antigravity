@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import TrustBar from "@/components/layout/TrustBar";
 import FloatingBookingButton from "@/components/conversion/FloatingBookingButton";
 import MobileFooter from "@/components/conversion/MobileFooter";
+import { CartProvider } from "@/components/shop/CartProvider";
+import CartDrawer from "@/components/shop/CartDrawer";
 
 const inter = Inter({
   variable: "--font-body",
@@ -30,13 +32,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="min-h-screen antialiased font-[var(--font-body)]">
-        <TrustBar />
-        <Header />
-        <main className="pt-16 pb-20 md:pb-0">{children}</main>
-        <Footer />
-        <FloatingBookingButton />
-        <MobileFooter />
+      <body className="min-h-screen antialiased font-[var(--font-body)] bg-white text-gray-900">
+        <CartProvider>
+          <TrustBar />
+          <Header />
+          <main className="pt-16 pb-20 md:pb-0">{children}</main>
+          <Footer />
+          <FloatingBookingButton />
+          <MobileFooter />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

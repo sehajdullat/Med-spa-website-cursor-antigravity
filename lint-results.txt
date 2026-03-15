@@ -1,0 +1,22 @@
+﻿
+C:\Users\sehaj\Downloads\cursor\Med-spa-website-cursor-antigravity\src\app\results\page.tsx
+  20:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  23:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  26:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  29:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\sehaj\Downloads\cursor\Med-spa-website-cursor-antigravity\src\app\treatments\[slug]\TreatmentPageClient.tsx
+  23:10  warning  'cn' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\sehaj\Downloads\cursor\Med-spa-website-cursor-antigravity\src\components\home\TestimonialsSection.tsx
+  3:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\sehaj\Downloads\cursor\Med-spa-website-cursor-antigravity\src\components\home\TreatmentsGrid.tsx
+  9:10  warning  'cn' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\sehaj\Downloads\cursor\Med-spa-website-cursor-antigravity\src\components\quiz\QuizFlow.tsx
+  104:9  error  'scores' is never reassigned. Use 'const' instead  prefer-const
+
+Γ£û 8 problems (1 error, 7 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

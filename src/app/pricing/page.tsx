@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 const PRICING_BY_CATEGORY: Record<
   string,
@@ -40,7 +41,11 @@ export default function PricingPage() {
   return (
     <div className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16 max-w-3xl mx-auto"
+        >
           <h1 className="font-heading text-4xl md:text-6xl mb-6">
             Transparent Pricing, Exceptional Value
           </h1>
@@ -48,9 +53,14 @@ export default function PricingPage() {
             No surprises. No pressure. Just honest pricing for premium
             treatments.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-6xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="max-w-6xl mx-auto"
+        >
           <Tabs defaultValue="injectables" className="w-full">
             <TabsList className="w-full flex flex-wrap h-auto gap-2 p-2 bg-[var(--color-secondary)] rounded-xl border border-[var(--color-border)]">
               <TabsTrigger value="injectables">Injectables</TabsTrigger>
@@ -84,9 +94,14 @@ export default function PricingPage() {
               </TabsContent>
             ))}
           </Tabs>
-        </div>
+        </motion.div>
 
-        <div className="max-w-2xl mx-auto mt-16 p-8 bg-green-50 rounded-2xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto mt-16 p-8 bg-green-50 rounded-2xl"
+        >
           <h3 className="font-heading text-2xl mb-4">
             Flexible Financing Available
           </h3>
@@ -127,9 +142,14 @@ export default function PricingPage() {
               Apply for Financing →
             </Button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto mt-16 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mt-16 text-center"
+        >
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-gray-100 rounded-full mb-6">
             <Shield className="w-6 h-6 text-[var(--color-primary)]" />
             <span className="font-medium">100% Satisfaction Guaranteed</span>
@@ -140,7 +160,7 @@ export default function PricingPage() {
             <br />
             Not happy with results? We&apos;ll re-treat or refund within 30 days.
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

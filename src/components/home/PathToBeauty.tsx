@@ -53,15 +53,12 @@ export default function PathToBeauty() {
             className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden lg:sticky lg:top-24 bg-gray-200"
           >
             <Image
-              src="/images/consultation-photo.jpg"
+              src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2940&auto=format&fit=crop"
               alt="Consultation"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
               unoptimized
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
-              }}
             />
           </motion.div>
 

@@ -45,9 +45,6 @@ export default function TreatmentPageClient({
           className="object-cover opacity-40"
           sizes="100vw"
           unoptimized
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = "none";
-          }}
         />
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
