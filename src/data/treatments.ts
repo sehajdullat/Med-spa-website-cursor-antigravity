@@ -132,7 +132,13 @@ export const TREATMENTS: Treatment[] = [
       { question: "When will I see results?", answer: "Full effect in 1-2 weeks. Some see change in 3-5 days." },
     ],
     reviewCount: 156,
-    beforeAfterImages: [],
+    beforeAfterImages: [
+      {
+        before: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop",
+        after: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop",
+        caption: "Botox treatment for forehead lines after 2 weeks"
+      }
+    ],
   },
   {
     id: "5",
@@ -160,7 +166,13 @@ export const TREATMENTS: Treatment[] = [
       { question: "Is it reversible?", answer: "Yes. Hyaluronic acid fillers can be dissolved with an enzyme if needed." },
     ],
     reviewCount: 134,
-    beforeAfterImages: [],
+    beforeAfterImages: [
+      {
+        before: "https://images.unsplash.com/photo-1579402507204-517dfcda7233?q=80&w=800&auto=format&fit=crop",
+        after: "https://images.unsplash.com/photo-1512496015851-a1fbaf692ea1?q=80&w=800&auto=format&fit=crop",
+        caption: "1 Syringe of Lip Filler immediately post-treatment"
+      }
+    ],
   },
   {
     id: "6",
@@ -216,7 +228,13 @@ export const TREATMENTS: Treatment[] = [
       { question: "When can I wear makeup?", answer: "After peeling subsides, usually 5-7 days for medium peels." },
     ],
     reviewCount: 89,
-    beforeAfterImages: [],
+    beforeAfterImages: [
+      {
+        before: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=800&auto=format&fit=crop",
+        after: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop",
+        caption: "Custom gentle chemical peel after 1 series of treatments"
+      }
+    ],
   },
   {
     id: "8",

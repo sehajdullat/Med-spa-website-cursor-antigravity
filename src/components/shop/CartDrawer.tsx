@@ -4,7 +4,6 @@ import { useCart } from "./CartProvider";
 import { Button } from "@/components/ui/button";
 import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function CartDrawer() {

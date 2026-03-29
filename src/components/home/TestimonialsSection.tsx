@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -206,22 +206,34 @@ export default function TreatmentPageClient({
                 treatment.beforeAfterImages.length > 0 && (
                   <div id="results">
                     <h2 className="font-heading text-4xl mb-8">Real Results</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="space-y-12">
                       {treatment.beforeAfterImages.map((pair, idx) => (
-                        <div
-                          key={idx}
-                          className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200"
-                        >
-                          <Image
-                            src={pair.after}
-                            alt={pair.caption ?? "After"}
-                            fill
-                            className="object-cover"
-                            unoptimized
-                          />
+                        <div key={idx} className="flex flex-col gap-4">
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 shadow-md">
+                              <div className="absolute top-2 left-2 z-10 bg-black/60 text-white px-2 py-1 text-xs font-bold rounded uppercase tracking-wider backdrop-blur">Before</div>
+                              <Image
+                                src={pair.before}
+                                alt={pair.caption ? `Before ${pair.caption}` : "Before"}
+                                fill
+                                className="object-cover"
+                                unoptimized
+                              />
+                            </div>
+                            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 shadow-md">
+                              <div className="absolute top-2 right-2 z-10 bg-[var(--color-primary)] text-white px-2 py-1 text-xs font-bold rounded uppercase tracking-wider shadow-sm">After</div>
+                              <Image
+                                src={pair.after}
+                                alt={pair.caption ? `After ${pair.caption}` : "After"}
+                                fill
+                                className="object-cover"
+                                unoptimized
+                              />
+                            </div>
+                          </div>
                           {pair.caption && (
-                            <p className="mt-2 text-sm text-gray-600">
-                              {pair.caption}
+                            <p className="text-center font-medium italic text-gray-700 bg-gray-50/80 p-3 rounded-lg border border-gray-100">
+                              &quot;{pair.caption}&quot;
                             </p>
                           )}
                         </div>

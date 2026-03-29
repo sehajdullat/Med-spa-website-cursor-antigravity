@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TREATMENTS } from "@/data/treatments";
-import { cn } from "@/lib/utils";
 
 export default function TreatmentsGrid() {
   return (

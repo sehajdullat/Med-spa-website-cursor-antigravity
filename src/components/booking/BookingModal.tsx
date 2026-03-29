@@ -1,6 +1,7 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import BookingFlow from "./BookingFlow";
@@ -24,6 +25,13 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
           )}
           aria-describedby={undefined}
         >
+          <VisuallyHidden>
+            <Dialog.Title>Book an Appointment</Dialog.Title>
+            <Dialog.Description>
+              Follow the steps to book your med spa service.
+            </Dialog.Description>
+          </VisuallyHidden>
+
           {/* Close button positioned absolutely so it floats over the content */}
           <Dialog.Close asChild>
             <button

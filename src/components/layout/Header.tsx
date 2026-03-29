@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/components/shop/CartProvider";
 import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
 
   return (
     <>
@@ -47,6 +49,12 @@ export default function Header() {
             >
               Pricing
             </Link>
+            <Link
+              href="/shop"
+              className="px-4 py-2 text-gray-700 hover:text-[var(--color-primary)] font-medium transition-colors"
+            >
+              Shop
+            </Link>
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
@@ -57,6 +65,20 @@ export default function Header() {
               <Phone className="w-4 h-4" />
               (555) 123-4567
             </a>
+            
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-gray-700 hover:text-[var(--color-primary)] transition-colors"
+              aria-label="Open cart"
+            >
+              <ShoppingBag className="w-6 h-6" />
+              {cartCount > 0 && (
+                <span className="absolute top-0 right-0 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-[var(--color-primary)] rounded-full translate-x-1 -translate-y-1">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+
             <Button
               size="lg"
               className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white"

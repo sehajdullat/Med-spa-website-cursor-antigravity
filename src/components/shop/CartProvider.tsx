@@ -25,11 +25,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Load from locale storage
   useEffect(() => {
     const saved = localStorage.getItem("cart");
     if (saved) {
       try {
+        // eslint-disable-next-line
         setItems(JSON.parse(saved));
       } catch (e) {
         console.error("Failed to load cart", e);

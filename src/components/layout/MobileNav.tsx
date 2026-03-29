@@ -136,6 +136,13 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
             >
               Pricing
             </Link>
+            <Link
+              href="/shop"
+              className="block py-3 text-gray-700 font-medium border-b border-gray-100"
+              onClick={onClose}
+            >
+              Shop
+            </Link>
           </nav>
           <div className="p-4 border-t border-[var(--color-border)] space-y-3">
             <a

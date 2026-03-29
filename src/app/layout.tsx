@@ -8,6 +8,7 @@ import FloatingBookingButton from "@/components/conversion/FloatingBookingButton
 import MobileFooter from "@/components/conversion/MobileFooter";
 import { CartProvider } from "@/components/shop/CartProvider";
 import CartDrawer from "@/components/shop/CartDrawer";
+import BookingModal from "@/components/booking/BookingModal";
 
 const inter = Inter({
   variable: "--font-body",
@@ -41,6 +42,7 @@ export default function RootLayout({
           <FloatingBookingButton />
           <MobileFooter />
           <CartDrawer />
+          <BookingModal />
         </CartProvider>
       </body>
     </html>
