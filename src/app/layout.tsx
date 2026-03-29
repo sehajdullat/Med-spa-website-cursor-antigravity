@@ -42,7 +42,9 @@ export default function RootLayout({
           <FloatingBookingButton />
           <MobileFooter />
           <CartDrawer />
-          <BookingModal />
+          <BookingModal open={false} onClose={function (): void {
+            throw new Error("Function not implemented.");
+          }} />
         </CartProvider>
       </body>
     </html>

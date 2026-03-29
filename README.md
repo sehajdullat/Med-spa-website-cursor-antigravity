@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Med Spa Website & Dashboard System
 
-## Getting Started
+A full-stack web application for a Med Spa that provides a premium public-facing aesthetic, booking functionalities, secure user/client portals, and a robust admin dashboard for managing sessions, clients, and reporting.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Core
+- **Framework:** Next.js 16 (App Router, React Server Components, Server Actions)
+- **Language:** TypeScript
+- **UI Component Library:** React 19
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Styling & UI
+- **Styling:** Tailwind CSS v4
+- **Animations:** Framer Motion
+- **Headless UI:** Radix UI primitives
+- **Icons:** Lucide React
+- **Date & Calendar:** React Day Picker & Date-fns
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Forms & Integrations
+- **Forms & Validation:** React Hook Form & Zod
+- **Payments:** Stripe (`@stripe/stripe-js`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend, Database, & Auth (via Supabase)
+- **Authentication:** Supabase Auth (Email/Password)
+- **Database:** PostgreSQL (with Row Level Security - RLS)
+- **File Storage:** Supabase Storage Buckets
+- **Data Fetching:** Native Next.js server actions and React Server Components.
 
-## Learn More
+## ✨ Key Features
 
-To learn more about Next.js, take a look at the following resources:
+### Role-Based Access Control
+- **Users:** General registered users who haven't booked yet.
+- **Clients:** Users who have successfully booked at least one session.
+- **Admins:** Full control over site operations, clients, schedules, and settings.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### User/Client Features
+- Fully integrated booking system leveraging specific scheduled `sessions`.
+- Dedicated client dashboard (`/dashboard` and `/bookings`) to oversee upcoming appointments.
+- Seamless automatic role upgrade from 'user' to 'client' upon their first booking.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Admin Dashboard Features
+- **Session Management:** Full CRUD operations for `session_types` and granular scheduling logic via availability rules.
+- **Calendar Oversight:** Visual grid/calendar to manage practitioner availability and exceptions.
+- **Client Management:** Audit client booking histories, manage status (Active, Banned, Rejected), and modify roles.
+- **Global Booking Oversight:** Complete view of all active and historic bookings across the system.
+- **Tracking & Auditing:** IP/User-agent login histories, booking change logs, and admin action tracking.
 
-## Deploy on Vercel
+## 🛠️ Getting Started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
+- Node.js (v20+ recommended)
+- `npm`, `yarn`, `pnpm`, or `bun`
+- A [Supabase](https://supabase.com/) project (for Auth & DB)
+- A [Stripe](https://stripe.com/) account (for e-commerce/bookings)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Set up environment variables. You'll need to create a `.env.local` and configure:
+   - Supabase keys (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, service role keys as needed)
+   - Stripe keys (`NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_SECRET_KEY`)
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
+
+## 🎨 Development Guidelines
+
+- **Routing First:** Standard Next.js file-system routing (`/[entity]/[action]`) is preferred over complex modals for workflows like profile editing or creating sessions.
+- **Modals:** Use sparingly, mostly for quick confirmations ("Are you sure you want to cancel?") or tiny inline edits.
+- **Toasts:** Implement toast notifications configured to display in the **Top-Left** for consistency.
+- **Design System:** Re-use the existing buttons, inputs, and cards to keep the premium frontend branding aligned with the client and admin dashboards.
