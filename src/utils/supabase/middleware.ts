@@ -48,7 +48,7 @@ export async function updateSession(request: NextRequest) {
 
     if (!profile || profile.role !== 'admin' || profile.status === 'banned' || profile.status === 'rejected') {
       const url = request.nextUrl.clone()
-      url.pathname = '/' // or to a specialized unauthorized page
+      url.pathname = '/not-authorized'
       return NextResponse.redirect(url)
     }
   }
@@ -69,7 +69,7 @@ export async function updateSession(request: NextRequest) {
 
     if (profile && (profile.status === 'banned' || profile.status === 'rejected')) {
       const url = request.nextUrl.clone()
-      url.pathname = '/'
+      url.pathname = '/not-authorized'
       return NextResponse.redirect(url)
     }
   }

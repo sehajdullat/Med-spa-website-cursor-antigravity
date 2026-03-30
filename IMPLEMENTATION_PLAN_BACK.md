@@ -100,14 +100,14 @@ We will use unique slugs for user pages (no modals for full page workflows). Mod
 ## Step-by-Step Implementation Outline
 
 1. **Phase 1: Project Setup & Supabase Config**
-   - Initialize Supabase project.
-   - Create tables, enums, triggers (e.g., user role auto-update on first booking).
-   - Set up Row Level Security (RLS) policies.
+   - [x] Initialize Supabase project.
+   - [x] Create tables, enums, triggers (e.g., user role auto-update on first booking).
+   - [x] Set up Row Level Security (RLS) policies.
 
 2. **Phase 2: Authentication & User Profiles**
-   - Implement Supabase Auth (Signup, Login, Logout) and protective middleware.
-   - Create the `/profile` page.
-   - Hook up login history tracking via Edge Functions or Postgres Auth hooks.
+   - [x] Implement Supabase Auth (Signup, Login, Logout) and protective middleware.
+   - [x] Create the `/profile` page.
+   - [ ] Hook up login history tracking via Edge Functions or Postgres Auth hooks.
 
 3. **Phase 3: Admin Core Features**
    - Build Admin layout wrapper and routing.

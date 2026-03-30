@@ -9,42 +9,61 @@ export async function login(formData: FormData) {
 
   // type-casting here for simplicity
   const data = {
-    email: formData.get('email') as string,
+    email: (formData.get('email') as string).trim(),
     password: formData.get('password') as string,
   }
 
-  const { error } = await supabase.auth.signInWithPassword(data)
+  const { data: authData, error } = await supabase.auth.signInWithPassword(data)
 
   if (error) {
-    return redirect('/login?message=Could not authenticate user')
+    return redirect('/login?error=Invalid login credentials. Please double-check your email and password.')
   }
 
   revalidatePath('/', 'layout')
-  redirect('/dashboard')
+
+  if (authData.user) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', authData.user.id)
+      .single()
+
+    if (profile?.role === 'admin') {
+      redirect('/admin')
+    }
+  }
+
+  redirect('/profile')
 }
 
 export async function signup(formData: FormData) {
   const supabase = await createClient()
 
   const data = {
-    email: formData.get('email') as string,
+    email: (formData.get('email') as string).trim(),
     password: formData.get('password') as string,
     options: {
       data: {
-        first_name: formData.get('first_name') as string,
-        last_name: formData.get('last_name') as string,
+        first_name: (formData.get('first_name') as string).trim(),
+        last_name: (formData.get('last_name') as string).trim(),
       }
     }
   }
 
-  const { error } = await supabase.auth.signUp(data)
+  const { data: authData, error } = await supabase.auth.signUp(data)
 
   if (error) {
-    return redirect('/signup?message=Could not create user')
+    return redirect(`/signup?error=${encodeURIComponent(error.message)}`)
   }
 
   revalidatePath('/', 'layout')
-  redirect('/dashboard')
+
+  // If email confirmation is enabled, Supabase doesn't return a session
+  if (authData.user && !authData.session) {
+    return redirect('/login?success=Account created! Please check your email to verify your account before logging in.')
+  }
+
+  redirect('/profile')
 }
 
 export async function logout() {

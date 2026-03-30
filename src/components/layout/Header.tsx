@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/components/shop/CartProvider";
 import MegaMenu from "./MegaMenu";
 import MobileNav from "./MobileNav";
+import UserMenu from "./UserMenu";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -58,6 +59,8 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
+            <UserMenu />
+            
             <a
               href="tel:5551234567"
               className="flex items-center gap-2 text-gray-700 hover:text-[var(--color-primary)] font-medium"
@@ -70,6 +73,7 @@ export default function Header() {
               onClick={() => setIsCartOpen(true)}
               className="relative p-2 text-gray-700 hover:text-[var(--color-primary)] transition-colors"
               aria-label="Open cart"
+              suppressHydrationWarning
             >
               <ShoppingBag className="w-6 h-6" />
               {cartCount > 0 && (
